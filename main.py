@@ -61,7 +61,7 @@ def coin_dispenser():
     cash = 0
 
     while True:
-        prompt = input("Insert Coins")
+        prompt = input("Insert Coins ")
 
         """coins is one of:
              - "quarters"
@@ -73,7 +73,7 @@ def coin_dispenser():
              - Dimes is $0.10
              - Nickels is $0.05
              - pennies is $0.01
-             
+
         """
         if prompt == "quarters":
             cash = cash + 0.25
@@ -87,7 +87,7 @@ def coin_dispenser():
             break
         else:
             print("Invalid Input")
-        return cash
+    return cash
 
 
 def make_coffee(c):
@@ -103,10 +103,10 @@ def make_order(s):
     global Coffee_Maker1
     global coffee_menus
     if Coffee_Maker1.is_resource_sufficient(coffee_menus.find_drink(s)):
-        lack_coins = True
-    else:
         cash = coin_dispenser()
         make_coffee(s)
+    else:
+        lack_coins = True
 
 
 
