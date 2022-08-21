@@ -50,55 +50,7 @@ def selection(s):
         make_order(s)
     else:
         print("Invalid Input")
-"""
-def check_ingridients(c):
-    \"""
-    string -> boolean
-    check if there is enough ingridients \"\"\"
-    return True
-"""
-'''
-def coin_dispenser():
-    """
-    void -> int
-    prompt the user to enter a coins and produce the amount entered in int"""
-    cash = 0
 
-    while True:
-        prompt = input("Insert Coins ")
-
-        """coins is one of:
-             - "quarters"
-             - "dimes"
-             - "nickels
-             - "pennies"
-          interp. represent the coins and their value
-             - Quarters is $0.25
-             - Dimes is $0.10
-             - Nickels is $0.05
-             - pennies is $0.01
-
-        """
-        if prompt == "quarters":
-            cash = cash + 0.25
-        elif prompt == "dimes":
-            cash = cash + 0.10
-        elif prompt == "nickels":
-            cash = cash + 0.5
-        elif prompt == "pennies":
-            cash = cash + 0.1
-        elif prompt == "done":
-            break
-        else:
-            print("Invalid Input")
-    return cash
-'''
-
-
-def make_coffee(c):
-    """produce coffee"""
-
-    print("")
 
 
 def make_order(s):
