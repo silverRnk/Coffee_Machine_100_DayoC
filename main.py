@@ -6,7 +6,9 @@ coffee_menus = Menu()
 Coffee_Maker1 = CoffeeMaker()
 money_machine1 = MoneyMachine()
 end_machine = ""
+lack_ingridients = False
 lack_coins = False
+
 
 def reset_conditions():
     """
@@ -14,8 +16,10 @@ def reset_conditions():
     """
     global end_machine
     global lack_coins
+    global lack_ingridients
     end_machine = ""
     lack_coins = False
+    lack_ingridients = False
 
 def selection(s):
     """ enter a string, run a function based on input"""
@@ -53,7 +57,7 @@ def check_ingridients(c):
     check if there is enough ingridients \"\"\"
     return True
 """
-
+'''
 def coin_dispenser():
     """
     void -> int
@@ -88,6 +92,7 @@ def coin_dispenser():
         else:
             print("Invalid Input")
     return cash
+'''
 
 
 def make_coffee(c):
@@ -100,13 +105,19 @@ def make_order(s):
     """produce the coffee"""
     "!!!"
     global lack_coins
+    global lack_ingridients
     global Coffee_Maker1
     global coffee_menus
-    if Coffee_Maker1.is_resource_sufficient(coffee_menus.find_drink(s)):
-        cash = coin_dispenser()
-        make_coffee(s)
+    global money_machine1
+
+    current_order = coffee_menus.find_drink(s)
+    if Coffee_Maker1.is_resource_sufficient(current_order):
+        if money_machine1.make_payment(current_order.cost):
+            make_coffee(s)
+        else:
+            lack_coins = True
     else:
-        lack_coins = True
+        lack_ingridients = True
 
 
 
@@ -119,5 +130,5 @@ while True:
     selection(prompt)
     if end_machine == "break":
         break
-    if lack_coins:
+    if lack_coins or lack_ingridients:
         continue
