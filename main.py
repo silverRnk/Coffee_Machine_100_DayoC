@@ -113,7 +113,7 @@ def make_order(s):
     current_order = coffee_menus.find_drink(s)
     if Coffee_Maker1.is_resource_sufficient(current_order):
         if money_machine1.make_payment(current_order.cost):
-            make_coffee(s)
+            Coffee_Maker1.make_coffee(current_order)
         else:
             lack_coins = True
     else:
